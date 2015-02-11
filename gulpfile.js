@@ -17,7 +17,7 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('build', function() {
+gulp.task('build', ['clean'], function() {
     gulp.src(['node_modules/knockout/build/output/knockout-latest.js'])
         .pipe(gulp.dest('dist/lib'));
 
