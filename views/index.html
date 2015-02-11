@@ -1,4 +1,8 @@
-<form action="search" method="get">
-    <label>Anime name: <input data-bind="value: defaultAnimeName" type="text" name="name"/></label>
+<form data-bind="submit: loadSearchResults">
+    <label>Anime name: <input data-bind="value: animeName" type="text" name="name"/></label>
     <button>Search</button>
 </form>
+
+<ul data-bind="foreach: results, visible: results().length > 0">
+    <li><a href="#" data-bind="click: $parent.selectTitle"></a></li>
+</ul>
