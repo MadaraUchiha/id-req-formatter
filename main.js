@@ -5,6 +5,7 @@ import express from 'express';
 import hogan from 'hogan-express';
 
 import {indexRouter} from './routes/index.js';
+import {searchRouter} from './routes/search.js';
 
 Promise.longStackTraces();
 
@@ -18,6 +19,7 @@ app.set('views', './views');
 app.set('layout', 'layout');
 
 app.use('/', indexRouter);
+app.use('/search', searchRouter);
 app.use('/', express.static('dist/', {}));
 
 app.listen(8080, () => {
